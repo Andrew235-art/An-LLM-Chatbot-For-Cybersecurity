@@ -10,6 +10,7 @@ Sammy is an AI-powered Cybersecurity Chatbot built with Streamlit and Google Gem
 - [Problem Statement](#problem-statement)
 - [Features](#features)
 - [How It Works](#how-it-works)
+- [System Prompt](#system-prompt)
 - [Technologies Used](#technologies-used)
 - [Installation & Setup](#installation--setup)
 - [Usage](#usage)
@@ -56,6 +57,19 @@ The UICT Cybersecurity Chatbot operates on a client-server model, utilizing Stre
 4.  **Response Generation:** The Gemini LLM processes the input, generates a relevant cybersecurity response based on its training and the system prompt.
 5.  **Display Output:** The chatbot's response is then displayed back to the user in the chat interface.
 
+## System Prompt
+The core behavior and persona of Sammy, the UICT Cybersecurity Chatbot, are guided by the following system prompt provided to the Google Gemini Large Language Model:
+```
+You are Sammy, a friendly and knowledgeable AI-powered chatbot designed to help students
+and staff members at the University of Information and Communication Technology (UICT) understand cybersecurity concepts.
+Your role is to provide clear, concise, and accurate explanations of cybersecurity topics, tools, and best practices in a way that is easy to understand for users with varying levels of expertise.
+You can answer questions about topics like phishing, malware, password security, network security, and data protection.
+Additionally, you can provide guidance on how to stay safe online and respond to common cybersecurity threats.
+Always maintain a helpful, approachable, and engaging tone.
+If a user’s question is unclear, ask for clarification to ensure your response is relevant and useful.
+Your knowledge is strictly limited to cybersecurity, and you should not respond to queries outside this domain.
+Always address the user by their name to make the conversation more personal and engaging.
+```
 ## Technologies Used
 
 This project is built using the following key technologies:
@@ -74,7 +88,7 @@ Follow these steps to get Sammy up and running on your local Linux machine:
 * Python 3.8+
 * `pip` (Python package installer)
 * An active internet connection (required for LLM API access)
-* A **Google Gemini API Key**. You can obtain one from the [Google AI Studio](https://aistudio.google.com/app/apikey).
+* A **Google Gemini API Key (*Specifically the Gemini 2.0 Flash Model API*)**. You can obtain one from the [Google AI Studio](https://aistudio.google.com/app/apikey). *Note: For project-specific API access, contact bandrew235@gmail.com. if a shared key is available for request.*
 
 ### Steps
 
@@ -102,9 +116,36 @@ Follow these steps to get Sammy up and running on your local Linux machine:
     ```bash
     pip install -r requirements.txt
     ```
+    ### For Windows Users:
+
+If you are setting up on a Windows machine, follow these specific steps for virtual environment and environment variable setup:
+
+1.  **Activate your virtual environment:**
+    ```cmd
+    .\sammyVenv02\Scripts\activate
+    ```
+    (Ensure you are in your project's root directory when running this.)
+
+2.  **Set your Google Gemini API Key:**
+    * **For the current Command Prompt session:**
+        ```cmd
+        set GEMINI_API_KEY="YOUR_ACTUAL_GEMINI_API_KEY_HERE"
+        ```
+    * **For the current PowerShell session:**
+        ```powershell
+        $env:GEMINI_API_KEY="YOUR_ACTUAL_GEMINI_API_KEY_HERE"
+        ```
+    * **For permanent setup (recommended for development):**
+        1.  Search "Environment Variables" in the Windows Start Menu and select "Edit the system environment variables."
+        2.  Click "Environment Variables..."
+        3.  Under "User variables for [YourUsername]", click "New..."
+        4.  For "Variable name," enter `GEMINI_API_KEY`.
+        5.  For "Variable value," paste your actual Gemini API Key.
+        6.  Click "OK" on all windows.
+        7.  **IMPORTANT:** Close and reopen your Command Prompt or PowerShell window for the new environment variable to take effect.
 
 4.  **Set your Google Gemini API Key:**
-    It's crucial to set your API key as an environment variable. Replace `YOUR_ACTUAL_GEMINI_API_KEY_HERE` with your key.
+    It's crucial to set your API key as an environment variable. Replace `YOUR_ACTUAL_GEMINI_API_KEY_HERE` with your API key from Google Ai Studio.
     ```bash
     export GEMINI_API_KEY="YOUR_ACTUAL_GEMINI_API_KEY_HERE"
     ```
@@ -154,7 +195,7 @@ Contributions are welcome! If you have suggestions for improvements or new featu
 
 ## Authors
 
-* **Bisaso Andrew** - *Initial Development & Lead* - [@Andrew235-art](https://github.com/Andrew235-art)
+* **Bisaso Andrew** - *Initial Development* - [@Andrew235-art](https://github.com/Andrew235-art)
 * Sseninde Joshua -  *Initial Development & Project Contributor*
 * Nakalema Sophie - *Documentation & Initial Development* 
 * Nakato Florence R M - *Documentation & Initial Development* 
@@ -168,9 +209,7 @@ MIT License
 
 We extend our sincere gratitude to the following for their invaluable contributions and support to this project:
 
-* **Google Gemini API:** For powering the sophisticated conversational intelligence and natural language understanding capabilities of the chatbot.
-* **Streamlit:** For providing an incredibly intuitive and efficient open-source framework that enabled the rapid development and deployment of the web-based user interface.
-* **UICT Community:** For serving as the inspiration and target users for this project, highlighting the critical need for enhanced cybersecurity awareness within the institution.
+* **UICT Community:** For serving as the inspiration and target users for this project, highlighting the critical need for enhanced cybersecurity awareness.
 
 ---
 
